@@ -7,41 +7,75 @@ DomainDetect.io's REST API is accessible at https://www.domaindetect.io/apiv1/ a
 
 By default we have left the Django-Rest client open to the pulic to assist you in understanding the API's functionality.
 
-### /alerts
+The RESTAPI uses a slightly different wording to the main interface, "Search Terms" are "Alerts" in the api and "Search Results" are just "Results". 
 
-#### GET
+### Endpoint: /alerts
 
-### /alerts/{alertid}
+Alerts is gets all search queries for your user.
 
-#### GET
+#### Method: GET
 
-#### POST
+View a list of all alerts active for your user. The "results" feild for each alert is a resultid for viewing matches.
 
-#### DELETE
+**_Sample Response_**
+```
+  {
+    "count": 4,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 17,
+            "created": "2016-09-28T11:14:17Z",
+            "query": "%term1%",
+            "results": [
+                "6"
+            ],
+            "owner": "root"
+        },
+        {
+            "id": 18,
+            "created": "2016-09-28T11:28:51Z",
+            "query": "%term2%",
+            "results": [],
+            "owner": "root"
+        }
+    ]
+}
+```
 
-#### PUT
 
-### /results
+### Endpoint: /alerts/{alertid}
 
-#### GET
+#### Method: GET
 
-### /results/{resultid}
+#### Method: POST
 
-#### GET
+#### Method: DELETE
 
-#### POST
+#### Method: PUT
 
-#### DELETE
+### Endpoint: /results
 
-#### PUT
+#### Method: GET
 
-### /users/
+### Endpoint: /results/{resultid}
 
-#### GET
+#### Method: GET
 
-#### POST
+#### Method: POST
 
-### /users/id
+#### Method: DELETE
+
+#### Method: PUT
+
+### Endpoint: /users/
+
+#### Method: GET
+
+#### Method: POST
+
+### Endpoint: /users/id
 
 #### GET
 
