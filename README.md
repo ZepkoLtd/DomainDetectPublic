@@ -17,7 +17,7 @@ Alerts is gets all search queries for your user.
 
 View a list of all alerts active for your user. The "results" feild for each alert is a resultid for viewing matches.
 
-**_Sample Response_**
+**__Sample Response__**
 ```
   {
     "count": 4,
@@ -43,40 +43,190 @@ View a list of all alerts active for your user. The "results" feild for each ale
     ]
 }
 ```
+#### Method: POST
 
+Create a new alert. (Just leave results blank, this is for importing old results)
+
+**__Sample Request Body__**
+```
+{
+    "query": "%yourtermhere%",
+    "results": []
+}
+```
 
 ### Endpoint: /alerts/{alertid}
 
+This endpoint is for viewing and manipulating individual alerts.
+
 #### Method: GET
 
-#### Method: POST
+View a single alert.
+
+**__Sample Response__**
+```
+  {
+    "id": 17,
+    "created": "2016-09-28T11:14:17Z",
+    "query": "%vod%",
+    "results": [
+        "6"
+    ],
+    "owner": "root"
+}
+```
+#### Method: PUT
+
+Modify an existing alert
+
+**__Sample Request Body__**
+```
+{
+    "id": 21,
+    "created": "2016-09-29T09:47:32Z",
+    "query": "%234567%",
+    "results": []
+}
+```
 
 #### Method: DELETE
 
-#### Method: PUT
+Delete an alert. (Just pull the body from /alerts/{id} and send it back with a DELETE request)
+
+**__Sample Request Body__**
+```
+{
+    "id": 21,
+    "created": "2016-09-29T09:47:32Z",
+    "query": "%234567%",
+    "results": []
+}
+```
 
 ### Endpoint: /results
 
+Results list all matches for your user.
+
 #### Method: GET
 
+Get all results for my user.
+
+**__Sample Response__**
+```
+  {
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 6,
+            "alert": 17,
+            "created": "2016-09-28T12:23:18Z",
+            "count": 25,
+            "owner": "root",
+            "result": "[\"evodl.com\", \"mozvod.com\", \"vodity.com\", \"vodyxl.com\", \"vodsjj.com\", \"vodlsx.com\", \"vodasjj.com\", \"vodayxl.com\", \"vodalsx.com\", \"evodbcc.com\", \"vodnaiba.com\", \"vodanaiba.com\", \"vodkafest.com\", \"vivodining.com\", \"kastelvodka.com\", \"lavodaliving.com\", \"volvodiyclub.com\", \"vodafonenews.com\", \"bez-provodov.com\", \"gaiolongvodao.com\", \"vodkashowroom.com\", \"treecityvodka.com\", \"texasvodkaclub.com\", \"vodlockerviooz.com\", \"digitalvideovisionvod.com\"]"
+        }
+    ]
+}
+```
 ### Endpoint: /results/{resultid}
 
+Use for viewing a specific result.
+
 #### Method: GET
 
-#### Method: POST
+Get a specific result.
 
-#### Method: DELETE
-
-#### Method: PUT
-
+**__Sample Response__**
+```
+  
+  {
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 6,
+            "alert": 17,
+            "created": "2016-09-28T12:23:18Z",
+            "count": 25,
+            "owner": "root",
+            "result": "[\"evodl.com\", \"mozvod.com\", \"vodity.com\", \"vodyxl.com\", \"vodsjj.com\", \"vodlsx.com\", \"vodasjj.com\", \"vodayxl.com\", \"vodalsx.com\", \"evodbcc.com\", \"vodnaiba.com\", \"vodanaiba.com\", \"vodkafest.com\", \"vivodining.com\", \"kastelvodka.com\", \"lavodaliving.com\", \"volvodiyclub.com\", \"vodafonenews.com\", \"bez-provodov.com\", \"gaiolongvodao.com\", \"vodkashowroom.com\", \"treecityvodka.com\", \"texasvodkaclub.com\", \"vodlockerviooz.com\", \"digitalvideovisionvod.com\"]"
+        }
+    ]
+}
+```
 ### Endpoint: /users/
 
+For modifying, creating and updating users.
+
 #### Method: GET
+
+**__Sample Response__**
+
+```
+  {
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 1,
+            "username": "myusername",
+            "email": "user@site.com",
+            "first_name": "John",
+            "last_name": "Smith"
+        }
+    ]
+}
+```
 
 #### Method: POST
 
-### Endpoint: /users/id
+Used to create a new user, remember that subscriptions must be activated through the interface. This can't be done from the API.
+
+**__Sample Request Body__**
+```
+{
+    "username": "NewUser",
+    "password": "SuperSecurePassword",
+    "email": "my@email.com",
+    "first_name": "New",
+    "last_name": "User"
+}
+```
+### Endpoint: /users/{userid}
+
+Used for viewing and updating just your user.
 
 #### GET
 
+Show your user details.
+
+**__Sample Response__**
+
+```
+{
+         "id": 1,
+         "username": "myusername",
+         "email": "user@site.com",
+         "first_name": "Jonh",
+         "last_name": "Smith"
+}
+```
+
 #### PUT
+
+Update your user details.
+
+**__Sample Request Body__**
+```
+{
+         "id": 1,
+         "username": "myusername",
+         "email": "user@site.com",
+         "first_name": "John",
+         "last_name": "Smith"
+}
+```
+
