@@ -1,4 +1,5 @@
-# DomainDetectPublic
+# DomainDetect.io REST API Docs
+
 Public REST API Code And Documentation For DomainDetect.io
 
 ## API Documentation
