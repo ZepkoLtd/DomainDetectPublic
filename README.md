@@ -93,15 +93,6 @@ Modify an existing alert
 
 Delete an alert. (Just pull the body from /alerts/{id} and send it back with a DELETE request)
 
-**__Sample Request Body__**
-```
-{
-    "id": 21,
-    "created": "2016-09-29T09:47:32Z",
-    "query": "%234567%",
-    "results": []
-}
-```
 
 ### Endpoint: /results
 
@@ -230,3 +221,6 @@ Update your user details.
 }
 ```
 
+#### DELETE
+
+Delete your user. Be careful.
