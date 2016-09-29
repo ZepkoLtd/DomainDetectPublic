@@ -3,11 +3,31 @@ Public REST API Code And Documentation For DomainDetect.io
 
 ## API Documentation
 
-DomainDetect.io's REST API is accessible at https://www.domaindetect.io/apiv1/ and is useable to any paid subscriber (including users with an acitved trial). The REST API can be used to view, modify, create and delete alerts.
+DomainDetect.io's REST API is accessible at https://www.domaindetect.io/apiv1/ and is useable to any paid subscriber (including users with an acitved trial). The REST API can be used to view and manipulate your user, alerts and results.
 
 By default we have left the Django-Rest client open to the pulic to assist you in understanding the API's functionality.
 
 The RESTAPI uses a slightly different wording to the main interface, "Search Terms" are "Alerts" in the api and "Search Results" are just "Results". 
+
+### Authentication
+
+API authentication is controlled using Django Session ID's. 
+
+Post your username and password to /apiv1/api-auth/login/
+
+**__Sample Request Form Data__**
+```
+username:user
+password:pass
+```
+
+The API will then assign you a sessionid in a cookie to send with each request:
+
+**__Sample Response Cookie__**
+
+```
+sessionid=21ss25kc50y203sdf260e62llsbs87am40;
+```
 
 ### Endpoint: /alerts
 
