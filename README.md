@@ -4,7 +4,7 @@ Public REST API Code And Documentation For DomainDetect.io
 
 ## API Documentation
 
-DomainDetect.io's REST API is accessible at https://www.domaindetect.io/apiv1/ and is useable to any paid subscriber (including users with an acitved trial). The REST API can be used to view and manipulate your user, alerts and results.
+DomainDetect.io's REST API is accessible at https://panel.domaindetect.io/apiv1/ and is useable to any paid subscriber (including users with an acitved trial). The REST API can be used to view and manipulate your user, alerts and results.
 
 By default we have left the Django-Rest client open to the pulic to assist you in understanding the API's functionality.
 
